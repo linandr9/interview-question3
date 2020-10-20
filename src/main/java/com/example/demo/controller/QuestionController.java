@@ -38,7 +38,7 @@ public class QuestionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<QuestionEntity> getEmployeeById(@PathVariable("id") Long id)
+    public ResponseEntity<QuestionEntity> getQuestionById(@PathVariable("id") Long id)
             throws RecordNotFoundException {
         QuestionEntity questionEntity = questionService.getQuestion(id);
 
@@ -46,8 +46,7 @@ public class QuestionController {
     }
 
     @PostMapping
-    public ResponseEntity<ObjectNode> addQuestion(@RequestBody QuestionEntity questionEntity)
-            throws RecordNotFoundException {
+    public ResponseEntity<ObjectNode> addQuestion(@RequestBody QuestionEntity questionEntity) {
         QuestionEntity updated = questionService.createQuestion(questionEntity);
         ObjectMapper mapper = new ObjectMapper();
         // create a JSON object
